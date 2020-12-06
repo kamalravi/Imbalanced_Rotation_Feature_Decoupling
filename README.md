@@ -9,7 +9,7 @@ Self-supervised learning aims to learn the features without using manual annotat
 
 ### Illustration
 
-<img src="https://raw.githubusercontent.com/philiptheother/FeatureDecoupling/master/_imgs/figure.png">
+<img src="https://raw.githubusercontent.com/kamalravi/FeatureDecoupling/master/_imgs/figure.png">
 
 
 ### Notice
