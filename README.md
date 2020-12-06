@@ -1,37 +1,16 @@
-## *Self-Supervised Representation Learning by Rotation Feature Decoupling*
+## *Self-Supervised Representation Learning by Imbalanced Rotation Feature Decoupling*
 
 ### Introduction
 
-The current code implements on [pytorch](http://pytorch.org/) the following CVPR 2019 paper:  
-**Title:**      "Self-Supervised Representation Learning by Rotation Feature Decoupling"  
-**Authors:**     Zeyu Feng, Chang Xu, Dacheng Tao  
-**Institution:** UBTECH Sydney AI Centre, School of Computer Science, FEIT, University of Sydney, Australia  
-**Code:**        https://github.com/philiptheother/FeatureDecoupling  
-**Link:**        [pdf and supp](http://openaccess.thecvf.com/content_CVPR_2019/html/Feng_Self-Supervised_Representation_Learning_by_Rotation_Feature_Decoupling_CVPR_2019_paper.html)
+This repository is an implementation of "Self-Supervised Representation Learning by Rotation Feature Decoupling" with Label-Distribution Aware Magin Loss to account for long-tailed real-world datasets.
 
 **Abstract:**  
-We introduce a self-supervised learning method that focuses on beneficial properties of representation and their abilities in generalizing to real-world tasks. The method incorporates rotation invariance into the feature learning framework, one of many good and well-studied properties of visual representation, which is rarely appreciated or exploited by previous deep convolutional neural network based self-supervised representation learning methods. Specifically, our model learns a split representation that contains both rotation related and unrelated parts. We train neural networks by jointly predicting image rotations and discriminating individual instances. In particular, our model decouples the rotation discrimination from instance discrimination, which allows us to improve the rotation prediction by mitigating the influence of rotation label noise, as well as discriminate instances without regard to image rotations. The resulting feature has a better generalization ability for more various tasks. Experimental results show that our model outperforms current state-of-the-art methods on standard self-supervised feature learning benchmarks.
+Self-supervised learning aims to learn the features without using manual annotations. This unsupervised visual representation learning is improving faster and closing the performance gap with supervised methods. Besides, this task generalization helps achieve a  robust model on a  particular primary task. It helps in learning a rich feature representation that can be used to learn the downstream tasks.  The existing approaches often follow supervised learning to learn a generalized model, which usually requires a broad set of labeled data that is not available for many real-world problems. Also, a choice of pretext tasks for self-supervised representation learning plays an important role. In the existing work, rotation pretext tasks are chosen, given its ease, if used in any problem setting and well studied visual representation properties. We were here training the neural network to predict the image rotations and distinguish the image instances. While learning the representation, the model also decouples the instance classification and rotation classification. However, these experiments don't consider an imbalance in the classes and an imbalance between the rotation agnostic images and rotatable images. To this end, in this work, we proposed to leverage label-distribution-aware margin (LDAM, a class-dependent loss) and deferred reweighting  (DRW)  technique to account for the imbalance. This would help make the model more robust to imbalanced samples and useful in downstream task applications using the feature presentation learned via self-supervised learning. 
 
 ### Illustration
 
 <img src="https://raw.githubusercontent.com/philiptheother/FeatureDecoupling/master/_imgs/figure.png">
 
-### Citing FeatureDecoupling
-
-If you find the code useful in your research, please consider citing our CVPR 2019 paper:
-```
-@InProceedings{Feng_2019_CVPR,
-author = {Feng, Zeyu and Xu, Chang and Tao, Dacheng},
-title = {Self-Supervised Representation Learning by Rotation Feature Decoupling},
-booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
-month = {June},
-year = {2019}
-}
-```
-
-### License
-
-Please refer to License files for details.
 
 ### Notice
 
@@ -58,6 +37,5 @@ Please refer to License files for details.
 
 ### To do
 
-* Pytorch-Caffe converter
-* PASCAL VOC experiments
-* Pre-trained models
+* Troubleshooting
+* Check with ImageNet
